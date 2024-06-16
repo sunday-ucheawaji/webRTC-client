@@ -35,8 +35,7 @@ const ContextProvider = ({ children }) => {
     });
   }, []);
 
-  console.log("client B get this from A", call);
-  console.log("my ID", me);
+ 
 
   const answerCall = () => {
     setCallAccepted(true);
@@ -66,10 +65,8 @@ const ContextProvider = ({ children }) => {
       stream,
     });
 
-    console.log("Peer Insatance >>>", peer);
 
     peer.on("signal", (data) => {
-      console.log("signal by client A to B", data);
       socket.emit("calluser", {
         userToCall: id,
         signalData: data,
